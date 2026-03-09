@@ -50,7 +50,7 @@ const deleteJob = async (req, res) => {
 
 const searchJobs = async (req, res) => {
     try {
-        const query = req.params.query || req.query.q || "";
+        const query = req.query.q || "";
         const jobs = await jobServices.searchJobs(query);
         res.status(200).json(jobs);
     } catch (error) {
@@ -60,7 +60,6 @@ const searchJobs = async (req, res) => {
 
 const filterJobs = async (req, res) => {
     try {
-        // Assume query params are the filters (e.g., ?status=Applied)
         const filters = req.query;
         const jobs = await jobServices.filterJobs(filters);
         res.status(200).json(jobs);
@@ -71,7 +70,7 @@ const filterJobs = async (req, res) => {
 
 const sortJobs = async (req, res) => {
     try {
-        const sortBy = req.params.field || req.query.sortBy || "createdAt";
+        const sortBy = req.query.sortBy || "createdAt";
         const order = req.query.order || "desc";
         const jobs = await jobServices.sortJobs(sortBy, order);
         res.status(200).json(jobs);

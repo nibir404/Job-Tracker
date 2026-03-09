@@ -12,16 +12,20 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/jobs", require("../modules/Job/jobRoutes"));
 
+app.get("/", (req, res) => {
+    res.status(200).json({ message: "Job-Tracker Backend is Running!" });
+});
 
 const startServer = async () => {
     try {
         await connectDB();
         app.listen(PORT, () => {
-            console.log(`Server is running on port http://localhost:${PORT}`);
+            console.log(`Server is running on http://localhost:${PORT}`);
         });
     } catch (error) {
-        console.log(error);
+        console.error("Server startup error:", error);
         process.exit(1);
     }
 }
+
 startServer();
