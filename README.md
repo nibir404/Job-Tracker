@@ -1,83 +1,110 @@
-# Job-Tracker 📁🚀
+# JobTracker 📁🚀
 
-A robust backend tracking system for your job applications. Built with **Node.js**, **Express 5**, and **MongoDB**.
+JobTracker is a premium career management platform designed to help professionals organize and track their job applications. Built with a modern **Node.js/Express** backend and a stunning **React/Tailwind CSS 4.0** frontend, it offers a seamless and aesthetically pleasing experience.
 
 ## ✨ Features
 
-- **CRUD Operations**: Full support for listing, creating, updating, and deleting job entries.
-- **Advanced Filtering**: Filter jobs by status or any other field.
-- **Dynamic Search**: Search through job titles, companies, or locations.
-- **Sorting**: Sort your job list by salary, date, or other attributes.
+### 💻 Frontend (React SDK)
+
+- **Modern Dashboard**: A clean, responsive interface using **DaisyUI 5.0** and **Tailwind CSS 4.0**.
+- **Real-time Synchronization**: Seamless integration with the backend API.
+- **Demo Mode**: Graceful fallback to rich dummy data if the database or backend is unreachable.
+- **Dynamic Search & Filtering**: Real-time search and status-based filtering (Applied, Interview, Offer, Rejected).
+- **Interactive UI**: Modern modals, smooth transitions, and premium typography (Outfit/Inter).
+
+### 🛠️ Backend (Express Core)
+
+- **Robust CRUD Engine**: Efficient handling of application data.
+- **Flexible Queries**: Advanced search, filtering, and sorting logic.
 - **Modular Architecture**: Clean separation of concerns with Core, Modules, and Services.
-- **CORS Enabled**: Ready to connect with any frontend application.
+- **Stability**: Environment-aware configuration with **Dotenv**.
 
 ## 🛠️ Technology Stack
 
-- **Runtime**: Node.js
-- **Framework**: Express.js (v5.x)
-- **Database**: MongoDB (via Mongoose)
-- **Environment**: Dotenv for configuration
+| Layer        | Technologies                                                                |
+| :----------- | :-------------------------------------------------------------------------- |
+| **Frontend** | React 19, Tailwind CSS 4.0, DaisyUI 5.0, Axios, React Icons, React Router 7 |
+| **Backend**  | Node.js, Express 5, MongoDB (Mongoose), Nodemon                             |
+| **Design**   | Outfit (Headings), Inter (Body text), Modern Gradients                      |
 
 ## 📁 Project Structure
 
 ```text
-backend/
-├── core/                # Core logic (server, database connection)
-├── modules/
-│   └── Job/             # Job module related files
-│       ├── jobModel.js
-│       ├── jobRoutes.js
-│       ├── jobController.js
-│       └── jobServices.js
-├── .env                 # Environment variables
-└── package.json         # Project dependencies
+Job-Tracker/
+├── frontend/                # React application
+│   ├── src/
+│   │   ├── components/      # UI Components (Navbar, JobCard, etc.)
+│   │   ├── pages/           # Application views (Dashboard)
+│   │   ├── services/        # API communication logic
+│   │   └── ...
+│   └── public/
+├── backend/                # Express API
+│   ├── core/                # Server & Database setup
+│   ├── modules/             # Business logic modules
+│   └── ...
+├── README.md
+└── ...
 ```
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) installed
-- [MongoDB](https://www.mongodb.com/try/download/community) installed and running locally OR a MongoDB Atlas account.
+- [Node.js](https://nodejs.org/) (v16+)
+- [MongoDB](https://www.mongodb.com/try/download/community) (Running locally or via Atlas)
 
-### Installation
+### 1. Backend Setup
 
-1. Clone the repository then navigate to the backend:
-   ```bash
-   cd backend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Set up your environment variables:
-   Create a `.env` file in the `backend` folder:
-   ```env
-   PORT=5000
-   MONGO_URI=mongodb://localhost:27017/job-tracker
-   ```
-4. Run the development server:
-   ```bash
-   npm run dev
-   ```
+```bash
+# Navigate to backend
+cd backend
+
+# Install dependencies
+npm install
+
+# Configure .env
+# Create a .env file:
+# PORT=5000
+# MONGO_URI=mongodb://127.0.0.1:27017/job-tracker
+
+# Seed data (optional)
+node core/seed.js
+
+# Run backend
+npm run dev
+```
+
+### 2. Frontend Setup
+
+```bash
+# Navigate to frontend (from root)
+cd frontend
+
+# Install dependencies
+npm install
+
+# Configure .env
+# Create a .env file:
+# VITE_API_URL=http://localhost:5000/api
+
+# Run frontend
+npm run dev
+```
 
 ## 📡 API Endpoints
 
-| Method     | Endpoint                          | Description      |
-| :--------- | :-------------------------------- | :--------------- |
-| **GET**    | `/api/jobs`                       | Get all jobs     |
-| **POST**   | `/api/jobs`                       | Create a new job |
-| **GET**    | `/api/jobs/:id`                   | Get job by ID    |
-| **PUT**    | `/api/jobs/:id`                   | Update a job     |
-| **DELETE** | `/api/jobs/:id`                   | Delete a job     |
-| **GET**    | `/api/jobs/search?q=query`        | Search jobs      |
-| **GET**    | `/api/jobs/filter?status=applied` | Filter jobs      |
-| **GET**    | `/api/jobs/sort?sortBy=salary`    | Sort jobs        |
+| Method   | Endpoint                 | Description           |
+| :------- | :----------------------- | :-------------------- |
+| `GET`    | `/api/jobs`              | Get all jobs          |
+| `POST`   | `/api/jobs`              | Create application    |
+| `PUT`    | `/api/jobs/:id`          | Update status/details |
+| `DELETE` | `/api/jobs/:id`          | Remove entry          |
+| `GET`    | `/api/jobs/search?q=...` | Search entries        |
 
 ## 🤝 Contributing
 
-Feel free to fork this project and submit pull requests!
+Contributions are welcome! Feel free to open issues or submit pull requests to improve the platform.
 
 ---
 
-Made with ❤️ by [Your Name]
+Made with ❤️ by [Nibirman]
