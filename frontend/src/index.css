@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@theme {
+  --color-primary: #6366f1;
+  --color-secondary: #a855f7;
+  --color-accent: #ec4899;
+}
+
+:root {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+h1, h2, h3, .card-title {
+  font-family: 'Outfit', sans-serif;
+}
+
+body {
+  background-color: var(--fallback-b1,oklch(var(--b1)));
+  color: var(--fallback-bc,oklch(var(--bc)));
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
